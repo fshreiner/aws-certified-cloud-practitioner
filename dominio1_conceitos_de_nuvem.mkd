@@ -1,0 +1,12 @@
+Domínio 1: Conceitos de Nuvem
+1.1 - Definição da Nunem AWS e sua proposta de valor
+    - Definição dos benefícios da Nuvem ASW, incluindo:
+        - Segurança
+        - Confiabilidade
+        - Alta disponibilidade
+        - Elasticidade
+        - Agilidade
+        - Cobrança conforme o uso
+        - Escalabilidade
+        - Alcance global
+        - Economia de escala
