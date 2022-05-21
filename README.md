@@ -26,11 +26,23 @@ Cloud Practitioner!
 	      
 	      - 6º - Live! in minutes - Agilidade em tudo, é muito rápido para subir um novo serviço, coisa que numa estrutura física seriam dias.
       
-	 - **Tipos de Cloud Computing**
-		 * IAAS
-		 * **PAAS**
-		 * **SAAS**
-		  
+	  - **Tipos de Cloud Computing**
+		 * **IAAS** - Infrastructure As A Service
+			 * Trabalhar com a estrutura física deles sem que eles possam acessar seus dados dentro do servidor. Por exemplo, montagem de servidores virtuais (EC2). Você faz aquisição de serviços de infraestrutura porém a AWS não tem acesso ao conteúdo do servidor. Todo gerenciamento dentro do servidor depende de você mesmo, incluindo toda configuração e montagem do mesmo.
+		 * **PAAS** - Plattform As A Service 
+			 * Montagem de uma plataforma. Você adquire ou utiliza uma plataforma como serviço. Por exemplo, você tem um site e quer subir o site a um servidor na nuvem, porém não quer cuidar da configuração deste servidor nem nada, querendo somente mesmo hospedar o site em um provedor já criado. Você só se preocupa com sua WebPage. Você mesmo fica sem acesso a parte de infraestrutura.
+		 * **SAAS** - Software As A Service
+			 * Você somente utiliza o software. Por exemplo o gmail, você não tem que criar a página, nem gerenciar os servidores deles, tudo que você faz é acessar a página deles já pronta e utilizar (E-mail, Drive, Etc).
+	
+	  - **Privado, Público e Híbrido - Cloud Deployments**
+		- **Plublic Cloud** - Um provedor de nuvem (AWS, Azure, Google Cloud) toma conta da infraestrutura física disponibilizando os serviços. Sendo público, significa que é aberto a qualquer pessoa a opção de adquirir um desses serviços em nuvem, mas não significa que seus dados ficam públicos também, tudo fica seguro e privado ao usuário. Envolve muita segurança aplicada, para garantir a confidencialidade do serviço. 
+		- **Hybrid** - Você faz uma junção de publico e privado, por exemplo uma empresa que tem servidores físicos próprios (privados) porém também tem parte dos serviços em funcionamento na núvem pública. Você pode ter um servidor AD local na sua empresa, e manter seu servidor do WebSite na nuvem.
+		- **Private Cloud** - (On Premise) É quando você faz o gerenciamento do seu próprio Data Center, você faz o gerenciamento completo de refrigeração, hardware, segurança, controle de acessos, basicamente é você criando sua própria nuvem, basicamente uma arquitetura local, que você expanda aos seus colaboradores.
+		
+		Atualmente grande parte das empresas ainda se encontram em private cloud. A tendência geralmente é a empresa migrar do private para o hybrid, subindo alguns serviços na public clound, e posteriormente ao validar que o serviço é seguro, que não há falta de disponibilidade nem nada, a tendencia é que as empresas migrem totalmente para a public cloud, visando menores gastos e melhor gerenciamento e facilidade. 
+	
+	  - **Serviços dentro da AWS** 
+		- Existe uma grande quantidade de serviços dentro da AWS. O serviço existe para atender todas necessidades que surgirem.
   
   * EC2(VM)
      Win2019
@@ -58,6 +70,7 @@ A computação em nuvem é a entrega de recursos de TI sob demanda por meio da I
   **- Quem usa a computação em nuvem?**
 Organizações de todos os tipos, portes e setores usam a nuvem para uma grande variedade de casos de uso, como backup de dados, recuperação de desastres, e-mail, desktops virtuais, desenvolvimento e teste de software, análises de big data e aplicativos web voltados ao cliente. Por exemplo, as empresas do setor de saúde usam a nuvem para desenvolver tratamentos mais personalizados para os pacientes. Empresas de serviços financeiros usam a nuvem como base para detectar e prevenir fraudes em tempo real. E fabricantes de videogames usam a nuvem para entregar jogos online para milhões de jogadores em todo o mundo.
 
+
 **- Benefícios da computação em nuvem**
 
   **Agilidade**
@@ -72,3 +85,15 @@ A nuvem permite que você troque as despesas de capital (datacenters, servidores
 
   **Implantação global em questão de minutos**
 Com a nuvem, você pode ampliar as atividades para novas regiões geográficas e implantar globalmente em minutos. Por exemplo, a AWS tem infraestrutura em todo o mundo, o que permite que você implante aplicativos em vários locais físicos com apenas alguns cliques. Aproximar os aplicativos dos usuários finais reduz a latência e melhora a experiência desses usuários.
+
+
+**-Diferentes Tipos de Cloud**
+
+**Infraestrutura como serviço (IaaS)**
+O IaaS contém os componentes básicos da IT na nuvem. Normalmente, o IaaS oferece acesso a recursos de rede, computadores (virtuais ou em hardware dedicado) e espaço de armazenamento de dados. O IaaS oferece o mais alto nível de flexibilidade e controle de gerenciamento sobre os recursos de TI. Ele é o tipo de computação mais semelhante aos recursos existentes de TI, já conhecidos por vários departamentos e desenvolvedores de TI.
+
+**Plataforma como serviço (PaaS)**
+Com o PaaS, você não precisa mais gerenciar a infraestrutura subjacente (geralmente, hardware e sistemas operacionais) e pode manter o foco na implantação e no gerenciamento de aplicativos. Dessa forma, você fica mais eficiente, pois não precisa se preocupar com aquisição de recursos, planejamento de capacidade, manutenção de software, correções ou qualquer outro tipo de trabalho genérico repetitivo necessário para a execução dos aplicativos.
+
+**Software como serviço (SaaS)**
+O SaaS oferece um produto completo, executado e gerenciado pelo provedor de serviços. Na maioria dos casos, quando as pessoas mencionam SaaS, estão falando de aplicativos de usuários finais (como e-mail baseado na web). Com uma oferta de SaaS, você não precisa pensar sobre a manutenção do serviço ou o gerenciamento da infraestrutura subjacente. Você só precisa se preocupar sobre como utilizará esse software específico.
