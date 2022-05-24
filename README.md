@@ -6,14 +6,14 @@ Estudos para Certificação AWS Certified Cloud Practitioner
 Cloud Practitioner!
   
   * ## **Cloud?**
-      - **O que é cloud computing?**
+    - **O que é cloud computing?**
 	      Computação em nuvem se demonstra extremamente vantajosa, você aluga uma estrutura de acordo com a sua necessidade, sem se preocupar com a condição do hardware do seu servidor fisicamente. Exemplos de empresas que alugam cloud (Microsoft - Azure, Amazom - AWS, Google - Cloud).
 	      Você reduz seus custos de hardware.
 	      Você tem um nível de refrigeração, segurança e qualidade no hardware que seria muito caro a ser feito localmente por sua empresa.
 	      É escalável, você dá upgrade conforme precisa do recurso, não precisa comprar já tudo de início.
 	      Cloud é uma empresa disponibilizando seus recursos com um custo mais baixo e gerenciamento muito melhor.
       
-      - **Vantagens em se utilizar Cloud Computing**
+    - **Vantagens em se utilizar Cloud Computing**
 	      - 1º - Capital expense vs variable expense - Você pensa que vai gastar um valor, porém no fim a demanda é maior em caso de servidores físicos. Nos serviços de                cloud você já sabe o valor fixo do serviço e ele não muda, você já define na hora de adquirir baseado no tempo de uso.
       
 	      - 2º - Economies of scale AWS - Quanto mais clientes migrarem para cloud mais baixo a AWS consegue deixar o valor do produto. Desta forma, com o grande crescimento do conceito, é vantajoso optar por soluções cloud.
@@ -26,7 +26,7 @@ Cloud Practitioner!
 	      
 	      - 6º - Live! in minutes - Agilidade em tudo, é muito rápido para subir um novo serviço, coisa que numa estrutura física seriam dias.
       
-	  - **Tipos de Cloud Computing**
+	- **Tipos de Cloud Computing**
 		 * **IAAS** - Infrastructure As A Service
 			 * Trabalhar com a estrutura física deles sem que eles possam acessar seus dados dentro do servidor. Por exemplo, montagem de servidores virtuais (EC2). Você faz aquisição de serviços de infraestrutura porém a AWS não tem acesso ao conteúdo do servidor. Todo gerenciamento dentro do servidor depende de você mesmo, incluindo toda configuração e montagem do mesmo.
 		 * **PAAS** - Plattform As A Service 
@@ -34,34 +34,83 @@ Cloud Practitioner!
 		 * **SAAS** - Software As A Service
 			 * Você somente utiliza o software. Por exemplo o gmail, você não tem que criar a página, nem gerenciar os servidores deles, tudo que você faz é acessar a página deles já pronta e utilizar (E-mail, Drive, Etc).
 	
-	  - **Privado, Público e Híbrido - Cloud Deployments**
+	- **Privado, Público e Híbrido - Cloud Deployments**
 		- **Plublic Cloud** - Um provedor de nuvem (AWS, Azure, Google Cloud) toma conta da infraestrutura física disponibilizando os serviços. Sendo público, significa que é aberto a qualquer pessoa a opção de adquirir um desses serviços em nuvem, mas não significa que seus dados ficam públicos também, tudo fica seguro e privado ao usuário. Envolve muita segurança aplicada, para garantir a confidencialidade do serviço. 
 		- **Hybrid** - Você faz uma junção de publico e privado, por exemplo uma empresa que tem servidores físicos próprios (privados) porém também tem parte dos serviços em funcionamento na núvem pública. Você pode ter um servidor AD local na sua empresa, e manter seu servidor do WebSite na nuvem.
 		- **Private Cloud** - (On Premise) É quando você faz o gerenciamento do seu próprio Data Center, você faz o gerenciamento completo de refrigeração, hardware, segurança, controle de acessos, basicamente é você criando sua própria nuvem, basicamente uma arquitetura local, que você expanda aos seus colaboradores.
 		
 		Atualmente grande parte das empresas ainda se encontram em private cloud. A tendência geralmente é a empresa migrar do private para o hybrid, subindo alguns serviços na public clound, e posteriormente ao validar que o serviço é seguro, que não há falta de disponibilidade nem nada, a tendencia é que as empresas migrem totalmente para a public cloud, visando menores gastos e melhor gerenciamento e facilidade. 
 	
-	  - **Serviços dentro da AWS** 
+	- **Serviços dentro da AWS** 
 		- Existe uma grande quantidade de serviços dentro da AWS. O serviço existe para atender todas necessidades que surgirem.
 	
-	  - **Global Infrastruture (Infra Global AWS)**
+	- **Global Infrastruture (Infra Global AWS)**
 		- **Regions**
 			- AWS trabalha com regiões, geralmente o país, por exemplo Estados Unidos, Brasil, entre outros países.
 		- **Availability Zone**
 			- São os Data Centers dentro de uma região (Region). Exemplo, dentro da Região (país) Brasil temos as zonas de disponibilidade em SP, BR e RJ para seleção ao adquirir serviços Cloud.
 			
 		O Brasil infelizmente tem uma das zonas de serviços mais caras devido a cobrança de impostos. Muitas empresas optam por selecionar data centers para utilizar fora do Brasil, para evitar assim os impostos.
-
 	
-	  - **Free Tier Account (Conta Gratuíta Amazon)**
+	- **Free Tier Account (Conta Gratuíta Amazon)**
 		- A AWS tem um sistema Free Tier, ou seja, você consegue criar uma conta na AWS  e utilizar os serviços da AWS básicos pelo período de 12 meses para testes, sem cobrança alguma. A Amazon cobra no final do mês pelos serviços utilizados, então é só tomar cuidado e utilizar somente os serviços gratuítos.
   
   * ## **EC2(VM)**
-	  * **Introdução ao EC2** (Elastic Compute Cloud)
+	* **Introdução ao EC2** (Elastic Compute Cloud)
 		  * A AWS chama de Instance as máquinas virtuais criadas na Cloud.
 		  * Virtualização veio para resolver o problema de ter uma máquina amarrada física servindo somente para um propósito. A virtualizar uma máquina você divide ela em partes para instalar vários outros serviços. Hyper V é um excelente exemplo de virtualização de máquina física.
 		  * É muito mais inteligente virtualizar, e em cloud é tudo melhor ainda, pois não é necessário se preocupar com os recursos físicos deste servidor virtualizador. Por isto é tão interessante investir em cloud (AWS), e este serviço de virtualização é chamado de EC2.
-    
+
+	
+	- **Tipos de Planos e Valores do EC2**
+		- **Plano Sob Demanda**
+			- O plano sob demanda é para aquelas situações de urgência, em que você precisa de uma máquina rápida por uma demanda não esperada que surgiu. A AWS deixa reservado muito hardware "parado", não alocado, justamente para atender as demandas deste tipo, porém por necessitar ficar com equipamento ocioso a AWS acaba cobrando um pouco mais caro nas máquinas deste plano. Este plano também não tem nenhum vínculo a longo prazo, sendo cobrado por hora ou segundos de uso, sem compromisso de prazo mínimo, sendo ideal para momentos de pico, testes de novas funcionalidades, e você tem total gerenciamento de processamento.
+		- **Plano Saving Plans**
+			- No saving planes, você firma um contrato de compromisso com a AWS, podendo ser de 1 ano, 3 anos, ou mais. É o tipo certo para quando a empresa tem o servidor já definido e sabe que vai ficar com ele por longos períodos ativos, graças a este comprometimento de aluguel a Amazon oferece um preço muito mais em conta comparado ao plano sob demanda, sendo a melhor opção para aplicações físicas.
+		- **Plano Host Dedicados**
+			- Este plano é para quem necessita de um host dedicado exclusivamente a sua empresa, você aluga um servidor completo para seu uso, que acaba saindo um pouco mais caro, porém você pode economizar usando suas licenças neste servidor que você já possua previamente, como licenças de sistema operacional, banco de dados ou se quiser aplicar outros tipos de softwares, como Linux, ou algo específico que precise ser instalado por completo num host geral.
+		- **Plano Instâncias Spot**
+			- No spot instances você pode conseguir economia de até 90% no valor da máquina. Essa economia é conseguida através de uma barganha, como a AWS mantém muito de seu hardware ocioso para atender os planos sob demanda, você pode pedir uma instância spot, a AWS vai ceder recursos desses hardwares parados a você com um preço bem mais baixo, porém caso a AWS precise de recurso para atender planos sob demanda, ela vai desligar seu host sem prévio aviso e alocar para quem está pagando sob demanda. É feito para quando você precisa de um recurso grande e urgente, porém para testes, nunca produção, visando que sua aplicação pode ser interrompida a qualquer momento.
+		- **Cobrança por segundo**
+			- A cobrança nos planos por segundo pode ser solicitada, então é cobrado um mínimo de 60 segundos, e posteriormente você só vai pagar o que utilizar pelo tempo que a máquina estiver ligada. Perfeito para desenvolvimento/testes de aplicações.
+	
+	- **Calculadora de Instancias EC2**
+		- 
+	
+	- **Tipos de Instancias EC2**
+		- 
+	 
+	- **Introdução ao EBS**
+		- 
+	 
+	- **Criando uma Instancia EC2 Windows 2019**
+		- 
+	
+	- **Informações sobre a Instancia EC2 Windows 2019**
+		- 
+	
+	- **Acessando a Instancia EC2 Windows 2019**
+		- 
+	
+	- **Criando uma Instancia EC2 Linux**
+		- 
+	
+	- **Informações sobre a Instancia EC2 Linux**
+		- 
+	
+	- **Download e Configuração do Putty**
+		- 
+	
+	- **Acessando a Instancia EC2 Linux**
+		- 
+	
+	- **O que é um Load Balancer**
+		- 
+	
+	- **O que é AutoScaling**
+		- 
+	
+
 * Storage S3
 
 * IAM - Identity and access management (Users, Groups)
