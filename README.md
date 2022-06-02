@@ -60,7 +60,6 @@ Cloud Practitioner!
 		  * A AWS chama de Instance as máquinas virtuais criadas na Cloud.
 		  * Virtualização veio para resolver o problema de ter uma máquina amarrada física servindo somente para um propósito. A virtualizar uma máquina você divide ela em partes para instalar vários outros serviços. Hyper V é um excelente exemplo de virtualização de máquina física.
 		  * É muito mais inteligente virtualizar, e em cloud é tudo melhor ainda, pois não é necessário se preocupar com os recursos físicos deste servidor virtualizador. Por isto é tão interessante investir em cloud (AWS), e este serviço de virtualização é chamado de EC2.
-
 	
 	- **Tipos de Planos e Valores do EC2**
 		- **Plano Sob Demanda**
@@ -75,10 +74,36 @@ Cloud Practitioner!
 			- A cobrança nos planos por segundo pode ser solicitada, então é cobrado um mínimo de 60 segundos, e posteriormente você só vai pagar o que utilizar pelo tempo que a máquina estiver ligada. Perfeito para desenvolvimento/testes de aplicações.
 	
 	- **Calculadora de Instancias EC2**
-		- 
+		- A AWS disponibiliza o AWS Pricing Calculator, em que você pode utilizar a ferramenta para calcular todo tipo de plano, máquina, recursos, tudo isto para criar uma estimativa de valor referente ao serviço que você necessita.
+		- https://calculator.aws/#/?nc2=h_ql_pr_calc
 	
 	- **Tipos de Instancias EC2**
-		- 
+		- Tipos de instâncias se tratam de tipos de VMs, máquinas virtuais
+			- Uso Geral
+				- Mac, T4g, T3, T3a, N2, M6g, M6i, M6a, M5, M5a, M5n, M5zn, M4, A1
+				
+			- Otimizadas para Computação
+				- C7g, C6g, C6gn, C6i, C6a, Hpc6a, C5, C5a, C5n, C4
+				
+			- Otimizadas para Memória
+				- R6g, R6i, R5, R5a, R5b, R5n, R4, X2gd, X2idn, X2iedn, X2iezn, X1e, X1, Alta Memória, z1d
+				
+			- Computação Acelerada
+				- P4, P3, P2, DL1, Trn1, Inf1, G5, G5g, G4dn, G4ad, G3, F1, VT1
+				
+			- Otimizadas para Armazenamento
+				- Im4gn, Is4gen, I4i, I3, I3en, D2, D3, D3en, H1
+				
+			- Recursos das Instâncias
+				- Instâncias expansíveis
+				- Várias opções de armazenamento
+				- Instâncias otimizadas para o EBS
+				- Redes em cluster
+				- Recursos do processador Intel
+				
+			- Medir performance das Instâncias
+				- Por que é necessário medir a performance das instâncias?
+					- O Amazon EC2 permite que você provisione diversos tipos de instâncias, que oferecem combinações diferentes de CPU, memória, disco e rede. É fácil executar novas instâncias e testes em paralelo. Recomendamos a medição de performance dos aplicativos para identificar os tipos de instâncias adequados e validar a arquitetura dos aplicativos. Também recomendamos testes rigorosos de carga e escala para garantir que seus aplicativos tenham a escalabilidade pretendida.
 	 
 	- **Introdução ao EBS**
 		- 
