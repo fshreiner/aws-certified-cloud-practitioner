@@ -106,37 +106,28 @@ Cloud Practitioner!
 					- O Amazon EC2 permite que você provisione diversos tipos de instâncias, que oferecem combinações diferentes de CPU, memória, disco e rede. É fácil executar novas instâncias e testes em paralelo. Recomendamos a medição de performance dos aplicativos para identificar os tipos de instâncias adequados e validar a arquitetura dos aplicativos. Também recomendamos testes rigorosos de carga e escala para garantir que seus aplicativos tenham a escalabilidade pretendida.
 	 
 	- **Introdução ao EBS**
-		- 
-	 
-	- **Criando uma Instancia EC2 Windows 2019**
-		- 
-	
-	- **Informações sobre a Instancia EC2 Windows 2019**
-		- 
-	
-	- **Acessando a Instancia EC2 Windows 2019**
-		- 
-	
-	- **Criando uma Instancia EC2 Linux**
-		- 
-	
-	- **Informações sobre a Instancia EC2 Linux**
-		- 
-	
-	- **Download e Configuração do Putty**
-		- 
-	
-	- **Acessando a Instancia EC2 Linux**
-		- 
+		- EBS significa Elastic Block Store, a AWS não deixa os HDs ou SSDs na própria máquina física, mas sim tem storages de armazenamento dedicados somente para lidar com estes armazenamentos. (Vai armazenar dados bora pro HD, vai rodar aplicações de sistemas bora SSD)
+			- SSD
+				- io2, io2 Block Express, io1, gp3, gp2
+			- HDD
+				- st1, SC1
 	
 	- **O que é um Load Balancer**
-		- 
+		- A AWS tem o Elastic Load Balancer, que cuida basicamente de receber as requisições aos seus servidores e distribuir entre todos seus servidores automaticamente de forma a não sobrecarregar nenhum dos servidores, ele cuida de balancear as requisições entre todos seus servidores. Existem 3 tipos:
+			- Application - Você tem um load balancer bem inteligente, ele consegue visualizar a camada 7 da camada OSI, ou seja a Aplicação. Resumidamente ele consegue verificar o que o usuário está acessando dentro do site, e ele direciona o tráfego da pessoa de acordo com isso. Por exemplo, um site que tem duas linguas (PT e English) o load balancer application já consegue ver de onde você acessou e te redireciona ao seu idioma.
+			- Network - Este modelo não se preocupa com o tipo de tráfego, mas sim com a quantidade, ele só verifica endereçamento IP, vendo até a camada 4 do modelo OSI, podendo ver os protocolos TCP e UDP. Você pode dividir o tráfego de forma a separar porcentagens de tráfego em cada servidor.
+			- Classic - Ele é uma junção do network e do application. Ele ainda vê a camada 7, mas não muito precisamente, ele foi o primeiro a ser criado pela AWS por isto está um pouco defasado, e atualmente já não é tão utilizado.
 	
 	- **O que é AutoScaling**
-		- 
-	
+		- Este serviço pode nos ajudar muito, por exemplo, em um site de e-commerce em uma época tem uma redundância de 2 servidores, porém o site é acessado por vários usuários que acessam esses servidores. E se de uma hora pra outra a quantidade de usuários aumentar muito? Os servidores aguentaram? Com muito uso, isso afetará o desempenho do site, o serviço vai se tornar pior para os usuários. É impossível prever com exatidão a quantidade de acessos que você vai ter, porém podemos usar o serviço de autoscaling para nos salvar, o correto seria iniciar outros servidores para suprir a demanda, porém invés de fazer de forma manual, podemos usar o autoscaling para fazer essa extensão de forma automática, bem mais rápida, sobe muito rápido automaticamente, invés de você ter que ir lá e fazer isso manualmente. Precisamos definir somente 3 passos para usar autoscaling, os grupos (instâncias EC2 por exemplo, para servidores WEB), o template que é qual tipo de máquina será adicionado quando tiver necessidade de escalar, e por último a parte de options, onde você configura o formato de escalagem, se vai subir quantas máquinas manualmente, se vai desativar depois, todas essas configurações. Existem 5 tipos de autoscaling:
+			- All Times - Manter as intâncias atuais a todo tempo, por exemplo você tem 4 instâncias que vai deixar sempre ligado, e mais 6 que vão escalar. Se seus servidores principais, um deles caírem, uma dessas 4 ativas vão assumir o que cair.
+			- Scale Manally - Neste tipo você define manualmente, você define por exemplo que quer 5 instâncias agora, e programa o fim de semana para tirar essas 5.
+			- Schedule - Você cria tarefas, por exemplo de segunda a sexta você quer manter 4 máquinas, e nos fins de semana você ativa só 2 máquinas (podem ser dias, ou horas, bem personalizável).
+			- On Demand - Quando você configura por exemplo porcentagens de uso, quando suas máquinas chegarem a 50% de CPU você sobe mais máquinas por exemplo, tem todo um gerenciamento por meio de processamento para saber quando subir.
+			- Predictive - Um dos mais novos da AWS, é utilizado em conjunto a outros serviços, você conecta todas suas métricas de todos serviços e faz o ajuste automático interligando tudo, independente de qual serviço seja usado na máquina.
 
-* Storage S3
+* ## **Storage S3**
+	* 
 
 * IAM - Identity and access management (Users, Groups)
 
@@ -195,3 +186,21 @@ A AWS fornece uma presença global mais extensa do que qualquer outro provedor d
 
  **Zonas de disponibilidade**
 Uma zona de disponibilidade (AZ) é um ou mais datacenters distintos com energia, rede e conectividade redundantes em uma região da AWS. As AZs proporcionam aos clientes a capacidade de operar aplicativos e bancos de dados de produção com alta disponibilidade, tolerância a falhas e escalabilidade em níveis superiores aos que um único datacenter pode oferecer. Todas as AZs em uma região da AWS estão interconectadas por redes de alta largura de banda e baixa latência, usando fibra metropolitana dedicada e totalmente redundante para proporcionar redes de alto throughput e baixa latência entre AZs. Todo o tráfego entre as AZs é criptografado. A performance da rede é suficiente para realizar a replicação síncrona entre as AZs. As AZs particionam aplicativos para facilitar a alta disponibilidade. Se um aplicativo for particionado em várias AZs, as empresas estarão melhor isoladas e protegidas contra problemas como quedas de energia, raios, tornados e terremotos, entre outros. As AZs são fisicamente separadas por uma distância significativa (vários quilômetros) das outras AZs, embora todas estejam a um raio de até 100 km entre si.
+
+## Leitura Complementar - Autoscaling
+
+**O que é o AWS Auto Scaling?**
+O AWS Auto Scaling é um novo serviço da AWS para ajudar a otimizar o desempenho de aplicativos e reduzir custos de infraestrutura por meio da escalabilidade fácil e segura de vários recursos da AWS. O serviço simplifica a experiência de escalabilidade, permitindo escalar coleções de recursos relacionados usados por um aplicativo com apenas alguns cliques. O AWS Auto Scaling ajuda a configurar políticas de escalabilidade consistentes e congruentes em toda a pilha de infraestrutura usada por um aplicativo. O AWS Auto Scaling escala automaticamente os recursos conforme a necessidade para cumprir a estratégia de escalabilidade selecionada. Assim, você pode manter o desempenho e pagar apenas pelos recursos realmente necessários.
+
+**Quais os benefícios do AWS Auto Scaling?**
+O AWS Auto Scaling é uma forma rápida e fácil de otimizar o desempenho e os custos dos aplicativos.
+-   **Configure rapidamente a escalabilidade:** o AWS Auto Scaling oferece uma experiência unificada de escalabilidade para todos os recursos escaláveis usados pelos aplicativos. É possível ver a utilização média de todos os recursos escaláveis e definir rapidamente os níveis pretendidos de utilização para cada grupo de recursos semelhantes em uma interface simples e intuitiva.    
+-   **Tome decisões de escalabilidade com inteligência:** o AWS Auto Scaling permite automatizar a forma como recursos diferentes respondem às alterações de demanda. Estratégias de escalabilidade fáceis de compreender permitem priorizar disponibilidade, custos ou um equilíbrio ente os dois. O AWS Auto Scaling cria automaticamente todas as políticas de escalabilidade e define objetivos de acordo com sua preferência.  
+-   **Mantenha automaticamente o desempenho:** o AWS Auto Scaling monitora continuamente os recursos subjacentes dos aplicativos para garantir que operem nos níveis de performance desejados. Quando ocorrem picos de demanda, o AWS Auto Scaling aumenta automaticamente a capacidade dos recursos restritos para manter uma alta qualidade de serviço.    
+-   **Estime os custos e evite gastos desnecessários:** o AWS Auto Scaling pode ajudar a otimizar as eficiências de utilização e custo do consumo de serviços da AWS. Assim, você paga apenas pelos recursos realmente necessários. Quando a demanda cai, o AWS Auto Scaling remove automaticamente toda a capacidade excessiva de recursos, evitando gastos desnecessários.
+
+**Quando devo usar o AWS Auto Scaling?**
+Você deve usar o AWS Auto Scaling para aplicativos que usam um ou mais recursos escaláveis e estão sujeitos a cargas variáveis. Um bom exemplo seria um aplicativo web de comércio eletrônico que recebe tráfego variável durante o dia. O aplicativo segue uma arquitetura padrão de três camadas: o Elastic Load Balancing distribui o tráfego recebido, o Amazon EC2 é a camada de computação e o DynamoDB é a camada de dados. Neste caso, o AWS Auto Scaling escalará um ou mais grupos do EC2 Auto Scaling e tabelas do DynamoDB usados pelo aplicativo para responder à curva de demanda.
+
+**Como posso começar a usar o AWS Auto Scaling?**
+O AWS Auto Scaling permite a seleção de aplicativos de acordo com tags de recursos ou com pilhas do AWS CloudFormation. Com apenas alguns cliques, é possível criar um plano de escalabilidade para um aplicativo. Esse plano define como cada um dos recursos usados pelo aplicativo será escalado. Para cada recurso, o AWS Auto Scaling cria uma política de escalabilidade de rastreamento direcionada com a métrica mais popular para esse tipo de recurso e mantém essa métrica em um valor direcionado para a estratégia de escalabilidade selecionada. Para definir os valores das métricas de recursos, você pode optar entre três recomendações de escalabilidade predefinidas que otimizam disponibilidade, otimizam custos ou equilibram esses dois critérios. Ou, se preferir, você pode definir seus próprios valores pretendidos. Além disso, o AWS Auto Scaling define automaticamente os valores mínimo e máximo dos recursos.
